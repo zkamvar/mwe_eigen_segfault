@@ -1,4 +1,5 @@
 set.seed(999)
-m <- as.matrix(rnorm(374*374), 374, 374)
+m <- 201
+M <- matrix(rnorm(m*m), m, m)
 sessionInfo()
-eigen(m, symmetric = TRUE)
+eigen(M, symmetric = TRUE)
