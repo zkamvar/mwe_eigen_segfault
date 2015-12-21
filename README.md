@@ -6,11 +6,29 @@ https://github.com/rocker-org/rocker/issues/156
 
 # Usage
 
-From R:
+### From R:
 
 ```r
 source("https://raw.githubusercontent.com/zkamvar/mwe_eigen_segfault/master/mwe.R", echo = TRUE)
 ```
+
+### With Docker:
+
+```
+git clone https://github.com/zkamvar/mwe_eigen_segfault.git
+cd mwe_eigen_segfaut
+
+# Works
+docker run --rm -ti -v $(pwd):/mwe rocker/rstudio:ba939a8f4592 /bin/bash
+cd mwe; R
+source("mwe.R", echo = TRUE)
+
+# Fails
+docker run --rm -ti -v $(pwd):/mwe rocker/hadleyverse:1d713efa07b0 /bin/bash
+cd mwe; R
+source("mwe.R", echo = TRUE)
+```
+
 
 # Files
 
